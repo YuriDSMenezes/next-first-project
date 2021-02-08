@@ -1,53 +1,51 @@
 import { GetStaticPaths, GetStaticProps } from "next"
 import { useRouter } from 'next/router'
+import { client } from "../../lib/prismic"
 import { Container, ContentContainer, ImageContainer } from '../../styles/pages/Product'
+import { Document } from 'prismic-javascript/types/documents'
+import PrismicDom from 'prismic-dom'
+import Prismic from 'prismic-javascript'
+import { ParsedUrlQuery } from "querystring"
+interface ProductProps {
+    product: Document[]
+}
 
-export const Product = async ({...props}) => {
+const Product = async ({ product }: ProductProps) => {
     const routes = useRouter()
 
     if (routes.isFallback) {
         <p>carregando...</p>
     }
-    // console.log(props)
+
     return (
         <Container>
             <ImageContainer>
-                <p>images</p>
+                <p>{product[0].data.price}</p>
             </ImageContainer>
             <ContentContainer>
-                <p>teste</p>
+                {/* <p>{PrismicDom.RichText.asText(product.data.title)}</p> */}
             </ContentContainer>
         </Container>
     )
 }
 
-export default Product
 
 export const getStaticPaths: GetStaticPaths = async () => {
-    const response = await fetch(`http://localhost:3333/products`)
-    const products = await response.json()
-
-    const paths = products.map((category) => {
-        return {
-            params: { slug: category.id }
-        }
-    })
     return {
-        paths,
+        paths: [],
         fallback: true
     }
 }
 
 export const getStaticProps: GetStaticProps = async (context) => {
     const { slug } = context.params;
-
-    const response = await fetch(`http://localhost:3333/products?id=${slug}`)
-    const product = await response.json()
+    const product = await client().getByUID('product', String(slug), {})
 
     return {
         props: {
             product
         },
-        revalidate: 60
+        revalidate: 10
     }
 }
+export default Product

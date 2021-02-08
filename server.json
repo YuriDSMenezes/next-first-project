@@ -2,35 +2,27 @@
     "products": [
         {
             "id": "hamburguer",
-            "url":"https://exame.com/wp-content/uploads/2020/05/mafe-studio-LV2p9Utbkbw-unsplash-1.jpg?quality=70&strip=info&resize=680,453",
             "title": "Hambúrguer",
-            "category_id": "hamburguer",
-            "prize": 20,
-            "slug": "Hambúrguers variados"
+            "price": 20,
+            "slug": "hamburguer"
         },
         {
-            "id": "doce_maracuja",
-            "url":"https://static.clubedaanamariabraga.com.br/wp-content/uploads/2019/08/musse-de-maracuja-facil-pratica-414x277.jpg",
-            "title": "Doce de maracujá",
-            "category_id": "doce_maracuja",
-            "prize": 8,
-            "slug": "Muçe de maracujá"
+            "id": "fritas",
+            "title": "Batata frita",
+            "price": 8,
+            "slug": "fritas"
         },
         {
             "id": "maracuja",
-            "url":"https://static.clubedaanamariabraga.com.br/wp-content/uploads/2019/08/musse-de-maracuja-facil-pratica-414x277.jpg",
             "title": "Doce de maracujá",
-            "category_id": "maracuja",
-            "prize": 8,
-            "slug": "Muçe de maracujá"
+            "price": 8,
+            "slug": "maracuja"
         },
         {
-            "id": "doce",
-            "url":"https://static.clubedaanamariabraga.com.br/wp-content/uploads/2019/08/musse-de-maracuja-facil-pratica-414x277.jpg",
+            "id": "doce_maracuja",
             "title": "Doce de maracujá",
-            "category_id": "doce",
-            "prize": 8,
-            "slug": "Muçe de maracujá"
+            "price": 8,
+            "slug": "doce_maracuja"
         }
     ]
 }
